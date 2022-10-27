@@ -13,6 +13,7 @@ jobs:
         
       - name: Build antora-ui
         run: |
+          ls -a
           npm install
           gulp bundle
       
