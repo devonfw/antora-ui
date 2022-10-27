@@ -13,7 +13,7 @@ jobs:
         
       - name: Build antora-ui
         run: |
-          npm install -g gulp-cli
+          npm install gulp-cli
           gulp bundle
       
       - name: Save build as artifact
