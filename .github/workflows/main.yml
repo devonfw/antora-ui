@@ -19,6 +19,6 @@ jobs:
     
     - name: Save build as artifact
       uses: actions/upload-artifact@v3
-        with:
-          name: antora-ui-artifact
-          path: ./build/ui-bundle.zip
+      with:
+        name: antora-ui-artifact
+        path: ./build/ui-bundle.zip
