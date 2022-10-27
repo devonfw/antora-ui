@@ -3,39 +3,64 @@
 function gtag(){dataLayer.push(arguments);}
 function loadGAonConsent(){
     // Google Analytics
+    // 'UA-151636804-1'
     window.dataLayer = window.dataLayer || [];
     gtag('js', new Date());
     gtag('config', 'G-S920HQM260', { 'anonymize_ip': true });
     var gascript = document.createElement("script");
     gascript.async = true;
+    gascript.id = "gascript";
     gascript.src = "https://www.googletagmanager.com/gtag/js?id=G-S920HQM260";
     document.getElementsByTagName("head")[0].appendChild(gascript, document.getElementsByTagName("head")[0]);               
-  }
+}
 
-window.cookieconsent.initialise({
-  "palette": {
-    "popup": { "background": "#f5f5f5", "text": "#000"},
-    "button": { "background": "#4cbdec", "text": "#fff"}
-  },
-  "theme": "classic",
-  "type": "opt-in",
-  "content": {
-    "message": "We use cookies to perform analytics and enhance user experience. Do you accept to the use of cookies? For more information related to the cookies, please visit our",
-    "deny":"Decline",
-    "allow": "Accept",
-    "link": "cookie policy",
-    "href": "https://devonfw.com/"
-  },
-  onStatusChange: function(status, chosenBefore) {
-    var type = this.options.type;
-    var didConsent = this.hasConsented();
-    if (type == 'opt-in' && didConsent) {
-      if (navigator.doNotTrack != 1 && navigator.doNotTrack != "yes" && window.doNotTrack != 1 && navigator.msDoNotTrack != 1) {
-        loadGAonConsent();
+function removeGAonDecline(){
+    // Google Analytics
+    if (document.getElementById("gascript")) document.getElementById("gascript").remove();
+    var cookies = document.cookie.split(";");
+    for (var i = 0; i < cookies.length; i++) {
+      cookie_name = cookies[i].split("=")[0];
+      if (cookie_name.includes('_ga')){
+        deleteCookie(cookie_name);
       }
     }
-  }
-})
+}
+
+
+function deleteCookie(cname) {
+    document.cookie = cname + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+}
+
+
+window.addEventListener("load", function(){
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": { "background": "#f5f5f5", "text": "#000"},
+      "button": { "background": "#4cbdec", "text": "#fff"}
+    },
+    "theme": "classic",
+    "type": "opt-in",
+    "content": {
+      "message": "We use cookies to perform analytics and enhance user experience. Do you accept to the use of cookies? For more information related to the cookies, please visit our",
+      "deny":"Decline",
+      "allow": "Accept",
+      "link": "cookie policy",
+      "href": "https://devonfw.com/"
+    },
+    revokable:true,
+    onStatusChange: function(status, chosenBefore) {
+      var type = this.options.type;
+      var didConsent = this.hasConsented();
+      if (type == 'opt-in' && didConsent && navigator.doNotTrack != 1 && navigator.doNotTrack != "yes" && window.doNotTrack != 1 && navigator.msDoNotTrack != 1) {
+          loadGAonConsent();
+      }
+      else {
+          removeGAonDecline()
+      }
+      },
+    
+  })
+});
 
 if (document.cookie.split(';').filter(function(item) {
   return item.indexOf('cookieconsent_status=allow') >= 0
