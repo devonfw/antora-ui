@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - name: Checkout tutorial-compiler
+        uses: actions/checkout@v2
+          path: antora-ui
+          
       - name: Setup Node
         uses: actions/setup-node@v2
         
@@ -21,4 +25,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: antora-ui-artifact
-          path: ./build/ui-bundle.zip
+          path: antora-ui/build/ui-bundle.zip
