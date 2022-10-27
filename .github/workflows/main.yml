@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: Checkout tutorial-compiler
         uses: actions/checkout@v2
+        with:
           path: antora-ui
           
       - name: Setup Node
