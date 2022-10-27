@@ -21,7 +21,6 @@ jobs:
           cd antora-ui
           npm install
           gulp bundle
-          cd ../
       
       - name: Save build as artifact
         uses: actions/upload-artifact@v3
