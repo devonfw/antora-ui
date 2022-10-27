@@ -10,15 +10,12 @@ jobs:
     steps:
       - name: Checkout antora-ui
         uses: actions/checkout@v2
-        with:
-          path: antora-ui
           
       - name: Setup Node
         uses: actions/setup-node@v2
         
       - name: Build antora-ui
         run: |
-          cd antora-ui
           npm install
           gulp bundle
       
@@ -26,4 +23,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: antora-ui-artifact
-          path: antora-ui/build/ui-bundle.zip
+          path: build/ui-bundle.zip
