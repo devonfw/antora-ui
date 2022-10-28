@@ -125,7 +125,7 @@
   --footer-line-height: var(--doc-line-height);
   --footer-background: var(--color-primary-gray-devonfw);
   --footer-font-color: var(--color-black);
-  --footer-link-font-color: var(--color-secondary-gray-devonfw);
+  --footer-link-font-color: rgba(43, 41, 45, 0.6);
   /* dimensions and positioning */
   --navbar-height: calc(63 / var(--rem-base) * 1rem);
   --toolbar-height: calc(45 / var(--rem-base) * 1rem);
