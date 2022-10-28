@@ -14,18 +14,18 @@ footer.footer {
   color: var(--footer-link-font-color);
 }
 
-.bottom-footer{
+.bottom-footer {
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
 }
 
-.bottom-footer ul{
+.bottom-footer ul {
   padding: 0;
 }
 
-.bottom-footer li{
- list-style: none;
- display: inline;
- margin-left: 1rem;
+.bottom-footer li {
+  list-style: none;
+  display: inline;
+  margin-left: 1rem;
 }
