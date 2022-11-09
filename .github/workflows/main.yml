@@ -40,3 +40,10 @@ jobs:
           asset_path: build/ui-bundle.zip
           asset_name: ui-bundle.zip
           asset_content_type: application/zip
+          
+      - name: Trigger website update
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.GHA_TOKEN }}
+          repository: devonfw/devonfw.github.io
+          event-type: dispatch-build-website
