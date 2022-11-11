@@ -598,7 +598,7 @@ function removeGAonDecline(){
     }
 }
 
-function getCookie(cname) {
+export function getCookie(cname) {
   let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(';');
@@ -614,7 +614,7 @@ function getCookie(cname) {
   return "";
 }
 
-function setCookie(name,value,days) {
+export function setCookie(name,value,days) {
     var expires = "";
     if (days) {
         var date = new Date();
@@ -624,7 +624,7 @@ function setCookie(name,value,days) {
     document.cookie = name + "=" + (value || "")  + expires + "; domain=" + location.hostname +"; secure; path=/";
 }
 
-function deleteCookie(cname) {
+export function deleteCookie(cname) {
     document.cookie = cname + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
 }
 

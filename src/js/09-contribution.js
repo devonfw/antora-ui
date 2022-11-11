@@ -1,3 +1,5 @@
+import { setCookie, getCookie } from './08-cookie-consent.js'
+
 ;(function () {
   var contributionBtn = document.getElementById('contribution-btn')
   var contributionDiv = document.getElementById('contribution-div')
