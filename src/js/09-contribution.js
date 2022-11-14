@@ -1,4 +1,4 @@
-; (function () {
+;(function () {
   function getCookie (cname) {
     const name = cname + '='
     const decodedCookie = decodeURIComponent(document.cookie)
@@ -29,6 +29,11 @@
   var contributionDiv = document.getElementById('contribution-div')
   var contributionOverlay = document.getElementById('contribution-overlay')
   var readContributionInfo = getCookie('read_contribution_info')
+  var NavbarHeight = document.querySelector('.navbar').offsetHeight;
+  var ToolbarHeight = document.querySelector('.toolbar').offsetHeight;
+  
+  contributionBtn.style.marginTop = NavbarHeight + ToolbarHeight + 10 + 'px';
+  
   var toggleContributionDiv = function (btn, div, overlay, cookie) {
     btn.classList.toggle('active')
     div.classList.toggle('active')
