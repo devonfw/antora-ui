@@ -30,7 +30,7 @@
 }
 
 .contribution-btn {
-  margin-top: 15vh;
+  margin-top: 17.5vh;
   height: 2rem;
   width: 2rem;
   background-repeat: no-repeat;
@@ -122,6 +122,10 @@
   .contribution-container {
     width: 80vw;
   }
+
+  .contribution-btn {
+    margin-top: 19vh;
+  }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1023.5px) {
@@ -135,5 +139,11 @@
 
   .contribution-container {
     width: 50vw;
+  }
+}
+
+@media screen and (min-width: 1250px) {
+  .contribution-btn {
+    margin-top: 16vh;
   }
 }
