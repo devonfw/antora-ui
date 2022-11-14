@@ -121,13 +121,11 @@
   .contribution-container {
     width: 80vw;
   }
-  
+
   .contribution-img {
     display: none;
   }
-  
 }
-
 
 @media screen and (min-width: 630px) and (max-width: 769px) {
   .contribution.active {
