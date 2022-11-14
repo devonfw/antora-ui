@@ -1,6 +1,30 @@
-import { setCookie, getCookie } from './08-cookie-consent.js'
+; (function () {
+  function getCookie (cname) {
+    const name = cname + '='
+    const decodedCookie = decodeURIComponent(document.cookie)
+    const ca = decodedCookie.split(';')
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i]
+      while (c.charAt(0) === ' ') {
+        c = c.substring(1)
+      }
+      if (c.indexOf(name) === 0) {
+        return c.substring(name.length, c.length)
+      }
+    }
+    return ''
+  }
 
-;(function () {
+  function setCookie (name, value, days) {
+    var expires = ''
+    if (days) {
+      var date = new Date()
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000))
+      expires = '; expires=' + date.toUTCString()
+    }
+    document.cookie = name + '=' + (value || '') + expires + '; domain=' + window.location.hostname + '; secure; path=/'
+  }
+
   var contributionBtn = document.getElementById('contribution-btn')
   var contributionDiv = document.getElementById('contribution-div')
   var contributionOverlay = document.getElementById('contribution-overlay')
