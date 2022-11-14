@@ -29,11 +29,8 @@
   var contributionDiv = document.getElementById('contribution-div')
   var contributionOverlay = document.getElementById('contribution-overlay')
   var readContributionInfo = getCookie('read_contribution_info')
-  var NavbarHeight = document.querySelector('.navbar').offsetHeight;
-  var ToolbarHeight = document.querySelector('.toolbar').offsetHeight;
-  
-  contributionBtn.style.marginTop = NavbarHeight + ToolbarHeight + 10 + 'px';
-  
+  var NavbarHeight = document.querySelector('.navbar').offsetHeight
+  var ToolbarHeight = document.querySelector('.toolbar').offsetHeight
   var toggleContributionDiv = function (btn, div, overlay, cookie) {
     btn.classList.toggle('active')
     div.classList.toggle('active')
@@ -42,6 +39,7 @@
       setCookie('read_contribution_info', 'true', 300)
     }
   }
+  contributionBtn.style.marginTop = NavbarHeight + ToolbarHeight + 10 + 'px'
   if (!contributionDiv) return
   if (readContributionInfo.length === 0) {
     contributionBtn.classList.add('active')
