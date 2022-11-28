@@ -30,7 +30,6 @@
 }
 
 .contribution-btn {
-  margin-top: 15vh;
   height: 2rem;
   width: 2rem;
   background-repeat: no-repeat;
@@ -110,7 +109,25 @@
   padding-bottom: 0.5rem;
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 630px) {
+  .contribution.active {
+    transform: translate(0);
+  }
+
+  .contribution {
+    transform: translate(80vw);
+  }
+
+  .contribution-container {
+    width: 80vw;
+  }
+
+  .contribution-img {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 630px) and (max-width: 769px) {
   .contribution.active {
     transform: translate(0);
   }
